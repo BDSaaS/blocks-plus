@@ -11,8 +11,7 @@
 </template>
 
 <script>
-import Lib from '../../../wrenches/Lib'
-import Validator from '../../../wrenches/Validator'
+import Validator from '../../../packages/wrenches/Validator'
 
 export default {
     name: 'BInput',
@@ -69,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .b-input {
     position: relative;
 

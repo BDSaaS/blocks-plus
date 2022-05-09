@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import Validator from '../../../wrenches/Validator'
-import Lib from '../../../wrenches/Lib'
+import Validator from '../../../packages/wrenches/Validator'
+import Lib from '../../../packages/wrenches/Lib'
 // block-view
 export default {
     name: 'BForm',
@@ -41,6 +41,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 
 </style>

@@ -9,7 +9,7 @@
 
 <script>
 // Validator
-import Validator from '../../../wrenches/Validator'
+import Validator from '../../../packages/wrenches/Validator'
 
 // block-view
 export default {
@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='less' scoped>
 
 @keyframes shake {
     0% {

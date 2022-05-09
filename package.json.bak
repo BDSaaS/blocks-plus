@@ -4,14 +4,15 @@
   "description": "Blocks-plus is a better UI components Library with Vue.js",
   "main": "packages/index.js",
   "files": [
-    "packages"
+    "packages",
+    "components"
   ],
   "scripts": {
     "bootstrap": "yarn || npm i",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
-  },
+  },RF
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

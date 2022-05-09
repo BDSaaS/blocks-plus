@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import Lib from '../../../wrenches/Lib'
 
 export default {
     name: 'BCheckbox',
@@ -102,7 +101,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .b-checkbox {
     user-select: none;
     position: absolute;
