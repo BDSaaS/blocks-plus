@@ -1,0 +1,10 @@
+{
+  "name": "blocks-plus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ztes.sunny <xy@ztes.com>",
+  "license": "MIT",
+  "private": true,
+  "description": "An enterprise-class UI design language and Vue2 components implementation",
+  "repository": "https://github.com/BDSaaS/blocks-plus.git"
+}
