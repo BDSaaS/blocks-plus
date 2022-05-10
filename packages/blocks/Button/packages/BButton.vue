@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import Lib from "../../../wrenches/Lib"
 
 export default {
   name: 'BButton',
@@ -27,15 +28,17 @@ export default {
       type: String,
       default: '',
     },
+    handle: Function
   },
   computed: {
     isLoading() {
-      return this.loading || this.debounceRunning
+      return this.loading || this.debounceRunning || this.handleLoading
     },
   },
   data() {
     return {
       debounceRunning: false,
+      handleLoading: false
     }
   },
   mounted() {
@@ -49,16 +52,36 @@ export default {
      */
     VueClick(event) {
       this.debounce(() => {
-        // 存在跳转地址
+        // 存在路由地址跳转
         if (this.jump) {
-          this.$router.push({
-            path: this.jump,
-            query: '',
-          })
+          this.routeJump(this.jump)
         } else {
+          // 存在Handle处理函数
+          if (typeof this.handle === 'function') {
+            // 存在处理函数
+            this.handleLoading = true
+            // 执行函数
+            const p = this.handle()
+            if (p instanceof Promise) {
+              // finally
+              p.finally((e) => {
+                this.handleLoading = false
+              })
+            } else {
+              this.handleLoading = false
+            }
+            this.$emit('click', p)
+            return
+          }
           this.$emit('click', event)
         }
       }, this.delay)
+    },
+    routeJump(path, query = '') {
+      this.$router.push({
+        path: path,
+        query: query,
+      })
     },
     debounce(callback, delay) {
       if (!this.isLoading) {
