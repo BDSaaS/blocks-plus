@@ -1,10 +1,10 @@
 {
   "name": "blocks-plus",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "Blocks-plus is a better UI components Library with Vue.js",
   "license": "MIT",
   "main": "packages/index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
