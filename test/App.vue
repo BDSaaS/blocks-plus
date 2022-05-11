@@ -14,6 +14,14 @@
     <b-button @click="pro" :handle="sync1" :delay="3000" size="large" :shape="10">Large</b-button>
     <hr>
     <b-button :size="bSize" block>立即登录</b-button>
+    <hr>
+    <b-steps :steps="[1,2,3,4]"></b-steps>
+    <hr>
+    <b-result name="Result提示" tips="这个部分是提示语展示的地方，请耐心使用！">
+      <template slot="other">
+        123456
+      </template>
+    </b-result>
   </div>
 </template>
 

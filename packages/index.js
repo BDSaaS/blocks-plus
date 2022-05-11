@@ -13,8 +13,11 @@ import EventBus from './wrenches/EventBus'
 import Validator from './wrenches/Validator'
 import Tester from './wrenches/Validator/Tester'
 
+// Css
+import './theme/highlight.less'
+
 // Blocks components
-const blocks = { Button, Checkbox, Form, FormItem, Input, Result, Steps }
+const blocks = {Button, Checkbox, Form, FormItem, Input, Result, Steps}
 
 // Blocks wrenches
 export {
@@ -34,7 +37,7 @@ function install(Vue) {
 }
 
 // Vue.prototype.use
-export default { install }
+export default {install}
 
 // Blocks UI
 export {
