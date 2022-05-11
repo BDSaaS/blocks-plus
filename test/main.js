@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import BlocksPlus from '/packages'
+import BlocksPlus from 'blocks-plus'
 
 
 Vue.config.productionTip = false
