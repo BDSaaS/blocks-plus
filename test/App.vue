@@ -22,6 +22,34 @@
         123456
       </template>
     </b-result>
+    <hr>
+    <div>
+      <b-checkbox>这里是Checkbox</b-checkbox>
+    </div>
+    <hr>
+    <b-input type="text" v-model="bSize" placeholder="这里修改Button的大小"></b-input>
+    <hr>
+    <b-form style="margin: 0 auto" ref="reg2" :rules="reg2ValidatorRules"
+            :formData="reg2Form"
+    >
+      <b-form-item field="username">
+        <b-input v-model="reg2Form.username" type="text" placeholder="请输入真实姓名"/>
+      </b-form-item>
+      <b-form-item field="password">
+        <b-input v-model="reg2Form.password" type="password" placeholder="请设置您的密码"
+                 :options="inputOptions"
+        />
+      </b-form-item>
+      <b-form-item field="rePassword">
+        <b-input v-model="reg2Form.rePassword" type="password" placeholder="再次确认您的密码"
+                 :options="inputOptions"
+        />
+      </b-form-item>
+      <b-form-item>
+        <b-button size="large" :delay="2000" block>登录</b-button>
+      </b-form-item>
+    </b-form>
+    <hr>
   </div>
 </template>
 
@@ -34,7 +62,23 @@ export default {
     return {
       msg: '按钮测试',
       loading: false,
-      bSize: 'small'
+      bSize: 'small',
+      inputOptions: {
+        password: {
+          showIcon: true,
+        },
+      },
+      reg2Form: {
+        username: '',
+        password: '',
+        rePassword: '',
+      },
+      // 重置密码验证器规则
+      reg2ValidatorRules: {
+        username: [{required: true, message: '姓名不得为空'}, {min: 2, message: '姓名不小于2位'}],
+        password: [{required: true, message: '密码不得为空'}, {min: 6, message: '密码长度不小于6位'}],
+        rePassword: [{required: true, message: '确认密码不得为空'}, {min: 6, message: '确认密码长度不小于6位'}],
+      },
     }
   },
   components: {

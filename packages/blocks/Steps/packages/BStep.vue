@@ -1,7 +1,7 @@
 <template>
   <div class="b-step">
     <div v-for="(item,index) in steps" :key="index" class="line-box">
-      <div class="line" :class="(active >= index + 1)?'through':''"/>
+      <div class="line" :class="(active >= index + 1)?'through' + ' ' + ((active===index+1?'now':'')):''"/>
       <div class="item" :class="(active >= index + 1)?'through' + ' ' + ((active===index+1?'now':'')):''">
         <i v-if="active <= index + 1">{{ index + 1 }}</i>
         <div class="success-icon" @click="to(index+1)" v-else></div>
