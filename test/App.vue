@@ -3,6 +3,7 @@
     {{ msg }}
     <i @click="change">change</i>
     <hr>
+    <b-button delay="400"></b-button>
     <b-button @click="pro" :handle="handle" :delay="1000" size="small" shape="round">小按钮小按钮小按钮小按钮小按钮</b-button>
     <b-button @click="pro" :handle="sync1" :delay="1000" size="middle" shape="round">中等测试</b-button>
     <b-button @click="pro" :handle="sync1" :delay="1000" shape="round">默认测试</b-button>

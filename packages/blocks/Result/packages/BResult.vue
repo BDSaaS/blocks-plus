@@ -2,16 +2,20 @@
   <div class="b-result">
     <div class="b-result-icon">
       <slot name="icon">
-        <i class="success"></i>
+        <i :class="resultIcon">icon</i>
       </slot>
     </div>
     <div class="b-result-name">{{ name }}</div>
     <div class="b-result-tips">{{ tips }}</div>
-    <slot name="other"></slot>
+    <slot name="bottom"></slot>
   </div>
 </template>
 
 <script>
+const ResultIcon = {
+  success: 'success',
+  default: 'success'
+}
 export default {
   name: 'BResult',
   props: {
@@ -25,14 +29,12 @@ export default {
       type: String,
       default: '',
     },
+    icon: String
   },
   computed: {
-    classStatus(active) {
-      if (active <= this.active) {
-        return active === this.active ? 'through now' : 'through'
-      }
-      return ''
-    },
+    resultIcon() {
+      return ResultIcon[this.icon] || ResultIcon.default
+    }
   },
   methods: {
     to(n) {

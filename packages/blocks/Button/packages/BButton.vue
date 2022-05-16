@@ -32,7 +32,7 @@ export default {
   name: 'BButton',
   props: {
     delay: {
-      type: Number,
+      type: [Number, String],
       default: 0,
     },
     loading: {
@@ -43,7 +43,7 @@ export default {
       type: String,
       default: '',
     },
-    handle: Function,
+    asyncHandle: Function,
     size: String,
     block: Boolean,
     shape: [String, Number]
@@ -95,25 +95,25 @@ export default {
           this.routeJump(this.jump)
         } else {
           // 存在Handle处理函数
-          if (typeof this.handle === 'function') {
+          if (typeof this.asyncHandle === 'function') {
             // 存在处理函数
             this.handleLoading = true
             // 执行函数
-            const p = this.handle()
-            if (p instanceof Promise) {
-              // finally
-              p.finally((e) => {
+            const send = this.asyncHandle()
+            if (send instanceof Promise) {
+              // Promise finally
+              send.finally((e) => {
                 this.handleLoading = false
               })
             } else {
               this.handleLoading = false
             }
-            this.$emit('click', p)
+            this.$emit('click', send)
             return
           }
           this.$emit('click', event)
         }
-      }, this.delay)
+      }, Number(this.delay))
     },
     routeJump(path, query = '') {
       this.$router.push({
