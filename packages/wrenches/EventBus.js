@@ -78,7 +78,13 @@ export default class EventBus {
         return EventBus.getEvent(name)(...payload)
     }
 
-    static once(name, payload) {
+    /**
+     * Method EventBus.once
+     * 执行事件并关闭事件
+     * @param name
+     * @param payload
+     */
+    static once(name, ...payload) {
         EventBus.emit(name, ...payload)
         EventBus.off(name)
     }

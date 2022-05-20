@@ -1,0 +1,42 @@
+.b-switch {
+  user-select: none;
+  position: relative;
+  left: 0;
+  line-height: 20px;
+  cursor: pointer;
+
+  .b-switch-box {
+    width: 36px;
+    height: 10px;
+    background: #E1E4E8;
+    border-radius: 6px;
+    position: relative;
+
+    .b-switch-circle {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: #FFFFFF;
+      border-radius: 100%;
+      box-shadow: 0 1px 6px 0 rgba(75, 88, 122, 0.2);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -8px;
+      transition: left .5s;
+
+      &.position-right {
+        right: 0;
+        transition: right .5s;
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+}

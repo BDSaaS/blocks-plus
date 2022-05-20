@@ -6,6 +6,7 @@ import FormItem from './blocks/FormItem'
 import Input from './blocks/Input'
 import Result from './blocks/Result'
 import Steps from './blocks/Steps'
+import Switch from './blocks/Switch'
 
 // Wrenches
 import Lib from './wrenches/Lib'
@@ -17,36 +18,38 @@ import Tester from './wrenches/Validator/Tester'
 import './theme/highlight.less'
 
 // Blocks components
-const blocks = {Button, Checkbox, Form, FormItem, Input, Result, Steps}
+const blocks = {
+  Button,
+  Checkbox,
+  Form,
+  FormItem,
+  Input,
+  Result,
+  Steps,
+  Switch,
+}
 
 // Blocks wrenches
-export {
-    // ----------- Wrenches ----------- //
-    Lib,
-    EventBus,
-    Validator,
-    Tester,
+const wrenches = {
+  Lib,
+  EventBus,
+  Validator,
+  Tester,
 }
 
 // Vue components install
 function install(Vue) {
-    const blocksKeys = Object.keys(blocks)
-    blocksKeys.map((blockName) => {
-        Vue.component(blocks[blockName].name, blocks[blockName])
-    })
+  const blocksKeys = Object.keys(blocks)
+  blocksKeys.map((blockName) => {
+    Vue.component(blocks[blockName].name, blocks[blockName])
+  })
 }
 
 // Vue.prototype.use
 export default {install}
 
 // Blocks UI
-export {
-    // ----------- Components ----------- //
-    Button,
-    Checkbox,
-    Form,
-    FormItem,
-    Input,
-    Result,
-    Steps,
+export const BlocksPlus = {
+  ...blocks,
+  ...wrenches,
 }

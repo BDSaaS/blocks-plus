@@ -1,11 +1,12 @@
 {
   "name": "blocks-plus",
-  "version": "1.0.23",
+  "version": "1.0.25",
   "description": "Blocks-plus is a better UI components Library with Vue.js",
   "license": "MIT",
   "main": "lib/blocks-plus.umd.js",
   "style": "lib/blocks-plus.css",
   "private": false,
+  "typings": "types/index.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -52,6 +53,7 @@
   ],
   "files": [
     "lib",
+    "types",
     "packages",
     "README.md"
   ],

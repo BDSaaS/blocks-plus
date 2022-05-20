@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     {{ msg }}
+    <hr>
+    <b-switch></b-switch>
+    <hr>
     <i @click="change">change</i>
     <hr>
     <b-button delay="400"></b-button>
@@ -34,7 +37,7 @@
             :formData="reg2Form"
     >
       <b-form-item field="username">
-        <b-input v-model="reg2Form.username" type="text" placeholder="请输入真实姓名"/>
+        <b-input v-model="reg2Form.username" type="text" placeholder="请输入真实姓名" />
       </b-form-item>
       <b-form-item field="password">
         <b-input v-model="reg2Form.password" type="password" placeholder="请设置您的密码"
@@ -121,8 +124,8 @@ export default {
     sync1() {
       console.log(1)
       return 2
-    }
-  }
+    },
+  },
 }
 </script>
 
