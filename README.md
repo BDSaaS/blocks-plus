@@ -21,12 +21,12 @@
 - [X] Tool 工具库
 
 > 使用方法
-```
+```shell
 //第一步
 npm install blocks-plus
 //第二步
-import BlocksPlus from 'block'
-inport 'blocks-plus/lib/blocks-plus.css'
+import BlocksPlus from 'blocks-plus'
+import 'blocks-plus/lib/blocks-plus.css'
 //即可使用
 Vue.use(BlocksPlus)
 ```
