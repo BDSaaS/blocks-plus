@@ -22,7 +22,7 @@
 - [X] Tool 工具库
 
 > 使用方法
-```
+```shell
 //第一步
 npm install blocks-plus
 //第二步
