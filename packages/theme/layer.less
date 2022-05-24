@@ -1,0 +1,66 @@
+.b-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+
+  .b-layer-box {
+    width: 520px;
+    min-height: 100px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .b-layer-btn-close {
+      width: 24px;
+      height: 24px;
+      background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%239CA6B9' fill='none' fill-rule='evenodd'%3E%3Cpath d='M4 4l16 16M20 4L4 20'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
+      background-size: 100%;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .b-layer-box-content {
+      margin: 40px 10px 10px;
+    }
+  }
+}
+
+.b-layer-fade-enter-active {
+  animation: layer-fade-in .3s;
+}
+
+.b-layer-fade-leave-active {
+  animation: layer-fade-out .3s;
+}
+
+@keyframes layer-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes layer-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}

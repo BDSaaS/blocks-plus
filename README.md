@@ -10,6 +10,7 @@
 - [X] form 组件
 - [X] FormItem 组件
 - [X] Input 组件
+- [X] Layer 组件
 - [X] Result 组件
 - [X] Steps 组件
 
@@ -25,7 +26,7 @@
 //第一步
 npm install blocks-plus
 //第二步
-import BlocksPlus from 'block'
+import BlocksPlus from 'blocks-plus'
 inport 'blocks-plus/lib/blocks-plus.css'
 //即可使用
 Vue.use(BlocksPlus)

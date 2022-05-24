@@ -4,6 +4,7 @@ import Checkbox from './blocks/Checkbox'
 import Form from './blocks/Form'
 import FormItem from './blocks/FormItem'
 import Input from './blocks/Input'
+import Layer from './blocks/Layer'
 import Result from './blocks/Result'
 import Steps from './blocks/Steps'
 import Switch from './blocks/Switch'
@@ -17,6 +18,9 @@ import Tester from './wrenches/Validator/Tester'
 // Css
 import './theme/highlight.less'
 
+// Package
+import Package from '../package.json'
+
 // Blocks components
 const blocks = {
   Button,
@@ -24,6 +28,7 @@ const blocks = {
   Form,
   FormItem,
   Input,
+  Layer,
   Result,
   Steps,
   Switch,
@@ -43,6 +48,10 @@ function install(Vue) {
   blocksKeys.map((blockName) => {
     Vue.component(blocks[blockName].name, blocks[blockName])
   })
+  console.log(
+      `${'\n'} %c BDSaaS UI ${Package.version} %c npm i blocks-plus ${'\n'}`,
+      'color: #fadfa3; background: #030307; padding:5px 0;border-radius:3px 0 0 3px;',
+      'color:#000000;background: #ebd29a; padding:5px 0;border-radius:0 3px 3px 0;')
 }
 
 // Vue.prototype.use
