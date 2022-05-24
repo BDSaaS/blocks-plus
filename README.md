@@ -27,7 +27,7 @@
 npm install blocks-plus
 //第二步
 import BlocksPlus from 'blocks-plus'
-inport 'blocks-plus/lib/blocks-plus.css'
+import 'blocks-plus/lib/blocks-plus.css'
 //即可使用
 Vue.use(BlocksPlus)
 ```
