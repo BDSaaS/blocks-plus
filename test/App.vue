@@ -28,23 +28,23 @@
     </b-result>
     <hr>
     <div>
-      <b-checkbox>这里是Checkbox</b-checkbox>
+      <b-checkbox v-model="checkbox">这里是Checkbox</b-checkbox>
     </div>
     <hr>
     <b-input type="text" v-model="bSize" placeholder="这里修改Button的大小"></b-input>
     <hr>
     <b-form style="margin: 0 auto" ref="reg2" :rules="reg2ValidatorRules"
-            :formData="reg2Form"
+            :formData="reg2Form" label-width="100px" :label-display="false"
     >
-      <b-form-item field="username">
+      <b-form-item field="username" label="姓名">
         <b-input v-model="reg2Form.username" type="text" placeholder="请输入真实姓名" />
       </b-form-item>
-      <b-form-item field="password">
+      <b-form-item field="password" label="密码">
         <b-input v-model="reg2Form.password" type="password" placeholder="请设置您的密码"
                  :options="inputOptions"
         />
       </b-form-item>
-      <b-form-item field="rePassword">
+      <b-form-item field="rePassword" label="再次确认密码">
         <b-input v-model="reg2Form.rePassword" type="password" placeholder="再次确认您的密码"
                  :options="inputOptions"
         />
@@ -83,7 +83,13 @@ export default {
         password: [{required: true, message: '密码不得为空'}, {min: 6, message: '密码长度不小于6位'}],
         rePassword: [{required: true, message: '确认密码不得为空'}, {min: 6, message: '确认密码长度不小于6位'}],
       },
+      checkbox: false,
     }
+  },
+  watch: {
+    checkbox(nv, ov) {
+      console.log('*************', nv, ov)
+    },
   },
   components: {
     // HelloWorld

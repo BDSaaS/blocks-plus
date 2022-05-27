@@ -4,7 +4,7 @@
       @after-enter="afterEnter"
       @after-leave="afterLeave">
     <div class="b-layer" @click.self="closeLayer" v-show="visible">
-      <div class="b-layer-box">
+      <div class="b-layer-box" :style="[{width:layerWidth}]">
         <div class="b-layer-btn-close" @click="closeLayer"></div>
         <div class="b-layer-box-content">
           <slot></slot>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+
+import Lib from '../../../wrenches/Lib'
 
 export default {
   name: 'BLayer',
@@ -28,28 +30,46 @@ export default {
       type: Boolean,
       default: false,
     },
+    width: [Number, String],
   },
   watch: {
     visible(nv, ov) {
-      // console.log('watch-visible', nv, ov);
-      if (nv !== ov) {
-        // console.log(nv, ov);
+      if (nv) {
+        this.openLayer()
       }
+    },
+  },
+  computed: {
+    layerWidth() {
+      if (Lib.isNumber(this.width)) {
+        return `${this.width}px`
+      } else if (Lib.isString(this.width)) {
+        return this.width
+      }
+      return '520px'
     },
   },
   methods: {
     openLayer() {
-      console.log('开启')
+      this.$emit('open')
     },
     closeLayer() {
-      console.log('关闭')
+      // console.log('关闭')
       this.$emit('update:visible', false)
+      this.$emit('close')
     },
+    /**
+     * 动画进入
+     */
     afterEnter() {
-      console.log('进入')
+      // console.log('进入')
+      this.$emit('enter')
     },
+    /**
+     * 动画离开
+     */
     afterLeave() {
-      console.log('离开')
+      this.$emit('leave')
     },
   },
   mounted() {

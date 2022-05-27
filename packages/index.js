@@ -22,7 +22,7 @@ import './theme/highlight.less'
 import Package from '../package.json'
 
 // Blocks components
-const blocks = {
+export const blocks = {
   Button,
   Checkbox,
   Form,
@@ -58,7 +58,26 @@ function install(Vue) {
 export default {install}
 
 // Blocks UI
-export const BlocksPlus = {
-  ...blocks,
-  ...wrenches,
+// export const BlocksPlus = {
+//   ...blocks,
+//   ...wrenches,
+// }
+
+export {
+  Button,
+  Checkbox,
+  Form,
+  FormItem,
+  Input,
+  Layer,
+  Result,
+  Steps,
+  Switch,
+}
+
+export {
+  Lib,
+  EventBus,
+  Validator,
+  Tester,
 }
