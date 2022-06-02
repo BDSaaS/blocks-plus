@@ -5,9 +5,12 @@ import Form from './blocks/Form'
 import FormItem from './blocks/FormItem'
 import Input from './blocks/Input'
 import Layer from './blocks/Layer'
+import List from './blocks/List'
+import Notice from './blocks/Notice'
 import Result from './blocks/Result'
 import Steps from './blocks/Steps'
 import Switch from './blocks/Switch'
+import Teleport from './blocks/Teleport'
 
 // Wrenches
 import Lib from './wrenches/Lib'
@@ -29,9 +32,12 @@ export const blocks = {
   FormItem,
   Input,
   Layer,
+  List,
+  Notice,
   Result,
   Steps,
   Switch,
+  Teleport,
 }
 
 // Blocks wrenches
@@ -70,9 +76,12 @@ export {
   FormItem,
   Input,
   Layer,
+  List,
+  Notice,
   Result,
   Steps,
   Switch,
+  Teleport,
 }
 
 export {

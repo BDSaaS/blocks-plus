@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     {{ msg }}
+    <b-notice></b-notice>
     <hr>
     <b-switch></b-switch>
     <hr>
@@ -33,24 +34,20 @@
     <hr>
     <b-input type="text" v-model="bSize" placeholder="这里修改Button的大小"></b-input>
     <hr>
-    <b-form style="margin: 0 auto" ref="reg2" :rules="reg2ValidatorRules"
-            :formData="reg2Form" label-width="100px" :label-display="false"
-    >
-      <b-form-item field="username" label="姓名">
-        <b-input v-model="reg2Form.username" type="text" placeholder="请输入真实姓名" />
+    <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules">
+      <b-form-item field="mobile">
+        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号"/>
       </b-form-item>
-      <b-form-item field="password" label="密码">
-        <b-input v-model="reg2Form.password" type="password" placeholder="请设置您的密码"
-                 :options="inputOptions"
-        />
+      <b-form-item field="password">
+        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码"/>
       </b-form-item>
-      <b-form-item field="rePassword" label="再次确认密码">
-        <b-input v-model="reg2Form.rePassword" type="password" placeholder="再次确认您的密码"
-                 :options="inputOptions"
-        />
-      </b-form-item>
+      <div class="forget-password">
+        <i class="cursor-point not-copy" @click="layerStatus='forget_password'">忘记密码?</i>
+      </div>
       <b-form-item>
-        <b-button size="large" :delay="2000" block>登录</b-button>
+        <b-button style="height: 60px;line-height: 60px" :delay="1000" size="large" @click="login(loginForm)"
+                  block>登录
+        </b-button>
       </b-form-item>
     </b-form>
     <hr>
@@ -72,18 +69,28 @@ export default {
           showIcon: true,
         },
       },
-      reg2Form: {
-        username: '',
+      // 登录表单
+      loginForm: {
+        mobile: '',
         password: '',
-        rePassword: '',
       },
-      // 重置密码验证器规则
-      reg2ValidatorRules: {
-        username: [{required: true, message: '姓名不得为空'}, {min: 2, message: '姓名不小于2位'}],
-        password: [{required: true, message: '密码不得为空'}, {min: 6, message: '密码长度不小于6位'}],
-        rePassword: [{required: true, message: '确认密码不得为空'}, {min: 6, message: '确认密码长度不小于6位'}],
+      // 登录验证器规则
+      loginValidatorRules: {
+        mobile: [{required: true, message: '手机不得为空'}, {phone: true, message: '请输入正确的手机号'}],
+        password: [{required: true, message: '密码不得为空'}, {min: 6, message: '密码不少于6位'}],
       },
       checkbox: false,
+      listData: [
+        {name: '张三', age: 20, gender: '男', key: '1'},
+        {name: '小红', age: 20, gender: '女', key: '2'},
+        {name: '张三', age: 20, gender: '男', key: '3'},
+      ],
+      columns: [
+        {title: '姓名', dataIndex: 'name'},
+        {title: '年龄', dataIndex: 'age'},
+        {title: '性别', dataIndex: 'gender'},
+      ],
+      selectedRowKeys: ['1'],
     }
   },
   watch: {

@@ -34,7 +34,10 @@ export default {
       },
     },
     validator: Object,
-    field: String,
+    field: {
+      type: String,
+      default: '',
+    },
   },
   provide() {
     return {
@@ -64,14 +67,15 @@ export default {
     },
   },
   mounted() {
-    // 绑定校验事件
-    Validator.eventOn(this.rules, this.field, ({error}) => {
-      this.eMsg = error
-    })
-    setTimeout(() => {
-      console.log('&&&&&&&&', this.config)
-    }, 5000)
+    this.validatorOn()
   },
-  methods: {},
+  methods: {
+    validatorOn() {
+      // 绑定校验事件
+      Validator.eventOn(this.rules, this.field, ({error}) => {
+        this.eMsg = error
+      })
+    },
+  },
 }
 </script>

@@ -113,9 +113,7 @@ export default class Tester {
      * @return {boolean}
      */
     static phone(value, ruleValue = true) {
-        // const rule = /^(13[0-9]|14[5-9]|15[012356789]|16[012356789]|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/
-        const rule = /^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/
-        return rule.test(value) === ruleValue
+        return Lib.isPhone(value, ruleValue)
     }
 
     /**
@@ -126,7 +124,6 @@ export default class Tester {
      * @return {boolean}
      */
     static email(value, ruleValue = true) {
-        const rule = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
-        return rule.test(value) === ruleValue
+        return Lib.isEmail(value, ruleValue)
     }
 }

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Validator from "../../../wrenches/Validator";
+import Validator from '../../../wrenches/Validator'
 
 export default {
   name: 'BInput',
@@ -55,8 +55,10 @@ export default {
       // console.log('options※', this.options, this.showPasswordEye)
     },
     modelHandle(e) {
-      this.$emit('input', e.target.value)
-      Validator.eventEmit(this.rules, this.field, e.target.value)
+      setTimeout(() => {
+        this.$emit('input', e.target.value)
+        Validator.eventEmit(this.rules, this.field, e.target.value)
+      }, 0)
     },
     changePasswordView(status) {
       this.showPasswordText = status

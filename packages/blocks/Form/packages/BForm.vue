@@ -19,7 +19,7 @@ export default {
     labelWidth: [String, Number],
     labelDisplay: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     labelPosition: String,
   },
@@ -41,13 +41,8 @@ export default {
       }
       return '50px'
     },
-  }
-  ,
+  },
   mounted() {
-    // Register validator
-    // if (this.rules) {
-    //     Validator.register(this.rules)
-    // }
   },
   methods: {
     // 校验方法
