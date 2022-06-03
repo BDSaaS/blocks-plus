@@ -36,10 +36,10 @@
     <hr>
     <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules">
       <b-form-item field="mobile">
-        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号"/>
+        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号" />
       </b-form-item>
       <b-form-item field="password">
-        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码"/>
+        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码" />
       </b-form-item>
       <div class="forget-password">
         <i class="cursor-point not-copy" @click="layerStatus='forget_password'">忘记密码?</i>
@@ -51,6 +51,7 @@
       </b-form-item>
     </b-form>
     <hr>
+    <b-layer :visible.sync="visible"></b-layer>
   </div>
 </template>
 
@@ -91,6 +92,7 @@ export default {
         {title: '性别', dataIndex: 'gender'},
       ],
       selectedRowKeys: ['1'],
+      visible: false,
     }
   },
   watch: {
@@ -108,6 +110,21 @@ export default {
     console.log(p)
   },
   methods: {
+    async login(formData) {
+      this.$refs.login.validator(async (validate) => {
+        if (validate) {
+          // const res = await this.$command.use(LoginCommand).handle(formData.mobile, formData.password)
+          // if (res.status) {
+          //   this.$message.success('恭喜您，登录成功！')
+          //   this.getUserInfo()
+          //   this.closeLayer()
+          // } else {
+          //   this.$message.error(res.msg)
+          // }
+        }
+      })
+
+    },
     change() {
       this.bSize = this.bSize === 'small' ? 'large' : 'small'
     }

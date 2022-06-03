@@ -3,7 +3,7 @@
       name="b-layer-fade"
       @after-enter="afterEnter"
       @after-leave="afterLeave">
-    <div class="b-layer" @click.self="closeLayer" v-show="visible">
+    <div class="b-layer" @click.self="closeLayerByMask(maskClose)" v-show="visible">
       <div class="b-layer-box" :style="[{width:layerWidth}]">
         <div class="b-layer-btn-close" @click="closeLayer"></div>
         <div class="b-layer-box-content">
@@ -27,6 +27,10 @@ export default {
   },
   props: {
     visible: {
+      type: Boolean,
+      default: false,
+    },
+    maskClose: {
       type: Boolean,
       default: false,
     },
@@ -57,6 +61,11 @@ export default {
       // console.log('关闭')
       this.$emit('update:visible', false)
       this.$emit('close')
+    },
+    closeLayerByMask(isAllow) {
+      if (isAllow) {
+        this.closeLayer()
+      }
     },
     /**
      * 动画进入
