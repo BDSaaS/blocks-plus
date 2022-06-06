@@ -1,9 +1,6 @@
 <template>
   <div class='b-form-item'>
-    <div class="b-form-item-label" v-if="config.labelDisplay">{{ label }}{{
-        config.labelWidth
-      }}{{ config.labelDisplay }}
-    </div>
+    <div class="b-form-item-label" v-if="config.labelDisplay">{{ label }}</div>
     <div class="b-form-item-slot">
       <slot></slot>
     </div>

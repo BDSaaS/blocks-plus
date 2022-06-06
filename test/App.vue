@@ -34,11 +34,11 @@
     <hr>
     <b-input type="text" v-model="bSize" placeholder="这里修改Button的大小"></b-input>
     <hr>
-    <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules">
-      <b-form-item field="mobile">
+    <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules" label-display>
+      <b-form-item field="mobile" label="请输入手机号">
         <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号" />
       </b-form-item>
-      <b-form-item field="password">
+      <b-form-item field="password" label="请输入密码">
         <b-input v-model="loginForm.password" type="password" placeholder="请输入密码" />
       </b-form-item>
       <div class="forget-password">
