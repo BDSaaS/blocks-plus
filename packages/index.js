@@ -11,6 +11,8 @@ import Result from './blocks/Result'
 import Steps from './blocks/Steps'
 import Switch from './blocks/Switch'
 import Teleport from './blocks/Teleport'
+import Select from './blocks/Select'
+import Option from './blocks/Select/option'
 
 // Wrenches
 import Lib from './wrenches/Lib'
@@ -38,6 +40,8 @@ export const blocks = {
   Steps,
   Switch,
   Teleport,
+  Select,
+  Option,
 }
 
 // Blocks wrenches

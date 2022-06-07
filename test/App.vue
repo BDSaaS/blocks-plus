@@ -36,10 +36,10 @@
     <hr>
     <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules" label-display>
       <b-form-item field="mobile" label="请输入手机号">
-        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号" />
+        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号"/>
       </b-form-item>
       <b-form-item field="password" label="请输入密码">
-        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码" />
+        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码"/>
       </b-form-item>
       <div class="forget-password">
         <i class="cursor-point not-copy" @click="layerStatus='forget_password'">忘记密码?</i>
@@ -52,11 +52,35 @@
     </b-form>
     <hr>
     <b-layer :visible.sync="visible"></b-layer>
+    <hr>
+    <dz-input v-model="msg"/>
+    <hr>
+    <p>展开状态：{{ visible2 }}</p>
+    <p>selected：{{selected}} selected2： {{selected2}}</p>
+    <div style="display: flex; justify-content: space-around">
+      <b-select
+          v-model="selected"
+          :options="options"
+          @visible-change="getVisible"
+      />
+      <b-select v-model="selected2" @visible-change="getVisible">
+        <b-option
+            v-for="(item, index) of options"
+            :key="index"
+            :label="item.label"
+            :value="item.value"
+        />
+      </b-select>
+    </div>
+    <hr>
+    <div style="height: 500px;"></div>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+
+import DzInput from "../packages/blocks/Select/packages/Input";
 
 export default {
   name: 'App',
@@ -93,6 +117,17 @@ export default {
       ],
       selectedRowKeys: ['1'],
       visible: false,
+      visible2: false,
+      selected: '1',
+      selected2: '2',
+      options: [
+        {value: '1', label: '选项一'},
+        {value: '2', label: '选项二'},
+        {value: '3', label: '选项三'},
+        {value: '4', label: '选项四'},
+        {value: '5', label: '选项五'},
+        {value: '6', label: '选项六'},
+      ],
     }
   },
   watch: {
@@ -101,6 +136,7 @@ export default {
     },
   },
   components: {
+    DzInput
     // HelloWorld
   },
   mounted() {
@@ -110,6 +146,9 @@ export default {
     console.log(p)
   },
   methods: {
+    getVisible(val) {
+      this.visible2 = val
+    },
     async login(formData) {
       this.$refs.login.validator(async (validate) => {
         if (validate) {

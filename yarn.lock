@@ -3442,6 +3442,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+dz-emitter@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/dz-emitter/-/dz-emitter-1.0.3.tgz#30165b3b561e434f9bc0ccf5b16db297ec432a3f"
+  integrity sha512-/X9JDgD/X2mwHGo8ZmSt7EX3M7jed+6HkJ0mPwJRDCm9Vpu224yHYE+QqYb7VNN/EE9nb/zkPPt1+ZnUpsDLiQ==
+
 easy-stack@1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/easy-stack/-/easy-stack-1.0.1.tgz#8afe4264626988cabb11f3c704ccd0c835411066"
