@@ -7,7 +7,7 @@
 
 - [X] Button 组件
 - [X] Checkbox 组件
-- [X] form 组件
+- [X] Form 组件
 - [X] FormItem 组件
 - [X] Input 组件
 - [X] Layer 组件
