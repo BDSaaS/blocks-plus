@@ -7,6 +7,7 @@ import Input from './blocks/Input'
 import Layer from './blocks/Layer'
 import List from './blocks/List'
 import Notice from './blocks/Notice'
+import Pagination from './blocks/Pagination'
 import Result from './blocks/Result'
 import Steps from './blocks/Steps'
 import Switch from './blocks/Switch'
@@ -28,40 +29,41 @@ import Package from '../package.json'
 
 // Blocks components
 export const blocks = {
-  Button,
-  Checkbox,
-  Form,
-  FormItem,
-  Input,
-  Layer,
-  List,
-  Notice,
-  Result,
-  Steps,
-  Switch,
-  Teleport,
-  Select,
-  Option,
+    Button,
+    Checkbox,
+    Form,
+    FormItem,
+    Input,
+    Layer,
+    List,
+    Notice,
+    Pagination,
+    Result,
+    Steps,
+    Switch,
+    Teleport,
+    Select,
+    Option,
 }
 
 // Blocks wrenches
 const wrenches = {
-  Lib,
-  EventBus,
-  Validator,
-  Tester,
+    Lib,
+    EventBus,
+    Validator,
+    Tester,
 }
 
 // Vue components install
 function install(Vue) {
-  const blocksKeys = Object.keys(blocks)
-  blocksKeys.map((blockName) => {
-    Vue.component(blocks[blockName].name, blocks[blockName])
-  })
-  console.log(
-      `${'\n'} %c BDSaaS UI ${Package.version} %c npm i blocks-plus ${'\n'}`,
-      'color: #fadfa3; background: #030307; padding:5px 0;border-radius:3px 0 0 3px;',
-      'color:#000000;background: #ebd29a; padding:5px 0;border-radius:0 3px 3px 0;')
+    const blocksKeys = Object.keys(blocks)
+    blocksKeys.map((blockName) => {
+        Vue.component(blocks[blockName].name, blocks[blockName])
+    })
+    console.log(
+        `${'\n'} %c BlocksPlus UI ${Package.version} %c npm i blocks-plus ${'\n'}`,
+        'color: #fadfa3; background: #030307; padding:5px 0;border-radius:3px 0 0 3px;',
+        'color:#000000;background: #ebd29a; padding:5px 0;border-radius:0 3px 3px 0;')
 }
 
 // Vue.prototype.use
@@ -74,23 +76,24 @@ export default {install}
 // }
 
 export {
-  Button,
-  Checkbox,
-  Form,
-  FormItem,
-  Input,
-  Layer,
-  List,
-  Notice,
-  Result,
-  Steps,
-  Switch,
-  Teleport,
+    Button,
+    Checkbox,
+    Form,
+    FormItem,
+    Input,
+    Layer,
+    List,
+    Notice,
+    Pagination,
+    Result,
+    Steps,
+    Switch,
+    Teleport,
 }
 
 export {
-  Lib,
-  EventBus,
-  Validator,
-  Tester,
+    Lib,
+    EventBus,
+    Validator,
+    Tester,
 }
