@@ -38,14 +38,111 @@
   //height: 60px;
   //line-height: 60px;
   text-align: center;
-  background: #0056FF;
+  //background: @background-primary-color;
   font-size: 18px;
   font-weight: 500;
-  color: #FFFFFF;
+  //color: #FFFFFF;
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
   transition: all .4s;
+
+  //&.b-button-default {
+  //  border: 1px solid #e5e5e5;
+  //  color: #888888;
+  //  background: #ffffff;
+  //}
+
+  &.b-button-default {
+    color: @background-default-font-color;
+    background: @background-default-color;
+
+    &:hover {
+      background: @background-default-hover-color;
+    }
+
+    &:active {
+      background: @background-default-active-color;
+    }
+  }
+
+  &.b-button-primary {
+    color: @background-primary-font-color;
+    background: @background-primary-color;
+
+    &:hover {
+      background: @background-primary-hover-color;
+    }
+
+    &:active {
+      background: @background-primary-active-color;
+    }
+  }
+
+  &.b-button-success {
+    color: @background-success-font-color;
+    background: @background-success-color;
+
+    &:hover {
+      background: @background-success-hover-color;
+    }
+
+    &:active {
+      background: @background-success-active-color;
+    }
+  }
+
+  &.b-button-warning {
+    color: @background-warning-font-color;
+    background: @background-warning-color;
+
+    &:hover {
+      background: @background-warning-hover-color;
+    }
+
+    &:active {
+      background: @background-warning-active-color;
+    }
+  }
+
+  &.b-button-danger {
+    color: @background-danger-font-color;
+    background: @background-danger-color;
+
+    &:hover {
+      background: @background-danger-hover-color;
+    }
+
+    &:active {
+      background: @background-danger-active-color;
+    }
+  }
+
+  &.b-button-info {
+    color: @background-info-font-color;
+    background: @background-info-color;
+
+    &:hover {
+      background: @background-info-hover-color;
+    }
+
+    &:active {
+      background: @background-info-active-color;
+    }
+  }
+
+  &.b-button-text {
+    color: @background-text-font-color;
+    background: @background-text-color;
+
+    &:hover {
+      background: @background-text-hover-color;
+    }
+
+    &:active {
+      background: @background-text-active-color;
+    }
+  }
 
   &.b-button-block {
     display: block;
@@ -68,7 +165,11 @@
     }
   }
 
-  &.b-button-small {
+  /**
+   * Size Style
+   */
+
+  &.b-button-size-small {
     //margin: 2px 4px;
     min-width: 40px;
     line-height: 24px;
@@ -80,7 +181,7 @@
     }
   }
 
-  &.b-button-middle {
+  &.b-button-size-middle {
     //margin: 2px 4px;
     min-width: 68px;
     line-height: 32px;
@@ -92,8 +193,10 @@
     }
   }
 
-  &.b-button-default {
-    //margin: 2px 4px;
+  &.b-button-size-default {
+    //border: 1px solid #e5e5e5;
+    //color: #888888;
+    //background: #ffffff;
     min-width: 80px;
     line-height: 40px;
     height: 40px;
@@ -104,7 +207,7 @@
     }
   }
 
-  &.b-button-large {
+  &.b-button-size-large {
     //margin: 2px 4px;
     min-width: 124px;
     line-height: 48px;
@@ -116,13 +219,21 @@
     }
   }
 
-  &:hover {
-    background: #004DE5;
-  }
-
-  &:active {
-    background: #0046D0;
-  }
+  //&:hover {
+  //  //background: #004DE5;
+  //  //color: #ffffff;
+  //
+  //  &.b-button-default {
+  //    color: #505050;
+  //    background: @background-default-color;
+  //    border: 1px solid #797979;
+  //  }
+  //}
+  //
+  //&:active {
+  //  background: #0046D0;
+  //
+  //}
 
   .b-button-loading {
     cursor: auto;
@@ -144,28 +255,50 @@
         animation: loading-dash 1.5s infinite ease-in-out;
       }
 
-      &.b-button-small {
+      &.b-button-size-small {
         width: 16px;
         height: 16px;
       }
 
-      &.b-button-middle {
+      &.b-button-size-middle {
         width: 20px;
         height: 20px;
       }
 
-      &.b-button-default {
+      &.b-button-size-default {
         width: 24px;
         height: 24px;
+
+        //circle {
+        //  stroke: rgba(0, 70, 208, 0.6) !important;
+        //}
+
+        //& > .path {
+        //  stroke: rgba(0, 0, 0, 0.6) !important;
+        //  stroke-width: 5;
+        //  animation: loading-dash 1.5s infinite ease-in-out;
+        //}
       }
 
-      &.b-button-large {
+      &.b-button-size-large {
         width: 30px;
         height: 30px;
 
         //& > .path {
         //  stroke-width: 4;
         //}
+      }
+
+      &.b-button-default, &.b-button-text {
+        //circle {
+        //  stroke: rgba(0, 70, 208, 0.6) !important;
+        //}
+
+        & > .path {
+          stroke: rgba(0, 0, 0, 0.6) !important;
+          stroke-width: 5;
+          animation: loading-dash 1.5s infinite ease-in-out;
+        }
       }
     }
 

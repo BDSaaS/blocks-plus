@@ -54,7 +54,7 @@ export default {
       if (nv !== ov) {
         setTimeout(() => {
           this.eMessage = this.eMsg
-        }, 300)
+        }, 200)
       }
     },
   },

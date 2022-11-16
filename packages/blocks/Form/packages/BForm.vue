@@ -1,5 +1,5 @@
 <template>
-  <form class="b-form">
+  <form className="b-form">
     <slot></slot>
   </form>
 </template>

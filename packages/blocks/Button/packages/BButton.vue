@@ -1,8 +1,8 @@
 <template>
-  <div class="b-button" :class="[buttonSize,buttonDisplay,buttonShape]" :style="[buttonRadius]">
+  <div class="b-button" :class="[buttonSize,buttonType,buttonDisplay,buttonShape]" :style="[buttonRadius]">
     <div class="b-button-loading" v-if="isLoading">
       <!--      <div class="loading-css"></div>-->
-      <svg viewBox="0 0 50 50" class="loading-svg" :class="buttonSize">
+      <svg viewBox="0 0 50 50" class="loading-svg" :class="[buttonSize,buttonType]">
         <circle cx="25" cy="25" r="20" fill="none" class="path" :style="{'stroke':loadingColor}"></circle>
       </svg>
     </div>
@@ -15,11 +15,21 @@
 <script>
 import Lib from '../../../wrenches/Lib'
 
+const ButtonType = {
+  default: 'b-button-default',
+  primary: 'b-button-primary',
+  success: 'b-button-success',
+  warning: 'b-button-warning',
+  danger: 'b-button-danger',
+  info: 'b-button-info',
+  text: 'b-button-text',
+}
+
 const ButtonSize = {
-  small: 'b-button-small', // 24
-  middle: 'b-button-middle', // 32
-  default: 'b-button-default', // 40
-  large: 'b-button-large', // 48
+  small: 'b-button-size-small', // 24
+  middle: 'b-button-size-middle', // 32
+  default: 'b-button-size-default', // 40
+  large: 'b-button-size-large', // 48
 }
 
 const ButtonShape = {
@@ -48,6 +58,7 @@ export default {
       default: '',
     },
     asyncHandle: Function,
+    type: String,
     size: String,
     block: Boolean,
     shape: [String, Number],
@@ -55,6 +66,9 @@ export default {
   computed: {
     isLoading() {
       return this.loading || this.debounceRunning || this.handleLoading
+    },
+    buttonType() {
+      return ButtonType[this.type] || ButtonType.primary
     },
     buttonSize() {
       return ButtonSize[this.size] || ButtonSize.default
