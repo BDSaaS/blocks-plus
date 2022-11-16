@@ -3,7 +3,7 @@
     <div class="b-button-loading" v-if="isLoading">
       <!--      <div class="loading-css"></div>-->
       <svg viewBox="0 0 50 50" class="loading-svg" :class="buttonSize">
-        <circle cx="25" cy="25" r="20" fill="none" class="path"></circle>
+        <circle cx="25" cy="25" r="20" fill="none" class="path" :style="{'stroke':loadingColor}"></circle>
       </svg>
     </div>
     <div class="b-button-slot" :class="isLoading?'b-button-slot-loading':''" @click="VueClick">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Lib from "../../../wrenches/Lib"
+import Lib from '../../../wrenches/Lib'
 
 const ButtonSize = {
   small: 'b-button-small', // 24
@@ -25,7 +25,7 @@ const ButtonSize = {
 const ButtonShape = {
   default: '',
   circle: 'b-button-shape-circle',
-  round: 'b-button-shape-round'
+  round: 'b-button-shape-round',
 }
 
 export default {
@@ -39,6 +39,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    loadingColor: {
+      type: String,
+      default: 'rgba(255, 255, 255, 0.6)',
+    },
     jump: {
       type: String,
       default: '',
@@ -46,7 +50,7 @@ export default {
     asyncHandle: Function,
     size: String,
     block: Boolean,
-    shape: [String, Number]
+    shape: [String, Number],
   },
   computed: {
     isLoading() {
@@ -66,12 +70,12 @@ export default {
     },
     buttonShape() {
       return ButtonShape[this.shape] || ButtonShape.default
-    }
+    },
   },
   data() {
     return {
       debounceRunning: false,
-      handleLoading: false
+      handleLoading: false,
     }
   },
   mounted() {

@@ -2,7 +2,7 @@
   <!-- 简单方式实现 -->
   <div class="b-input">
     <input autocomplete="off" :value="value" :type="inputType" :placeholder="placeholder" @input="modelHandle"
-           @blur="blurHandle">
+           @blur="blurHandle" :class="block?'b-input-block':''">
     <div v-if="showPasswordEye" class="__eye" @click="changePasswordView(!showPasswordText)">
       <i class="__open" v-if="showPasswordText"></i>
       <i class="__close" v-else></i>
@@ -30,6 +30,10 @@ export default {
         }
       },
     },
+    block: {
+      type: Boolean,
+      default: false,
+    },
   },
   inject: ['rules', 'field'],
   data() {
@@ -55,6 +59,9 @@ export default {
       // console.log('options※', this.options, this.showPasswordEye)
     },
     modelHandle(e) {
+      if (!this.rules) {
+        return
+      }
       setTimeout(() => {
         this.$emit('input', e.target.value)
         Validator.eventEmit(this.rules, this.field, e.target.value)

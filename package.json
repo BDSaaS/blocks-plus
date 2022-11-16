@@ -1,6 +1,6 @@
 {
   "name": "blocks-plus",
-  "version": "1.0.37",
+  "version": "1.0.40",
   "description": "Blocks-plus is a better UI components Library with Vue.js",
   "license": "MIT",
   "main": "lib/blocks-plus.umd.js",
