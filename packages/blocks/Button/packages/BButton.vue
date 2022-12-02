@@ -30,6 +30,7 @@ const ButtonSize = {
   middle: 'b-button-size-middle', // 32
   default: 'b-button-size-default', // 40
   large: 'b-button-size-large', // 48
+  huge: 'b-button-size-huge', // 60
 }
 
 const ButtonShape = {
@@ -40,6 +41,9 @@ const ButtonShape = {
 
 export default {
   name: 'BButton',
+  inject: {
+    widgetSize: {default: ''},
+  },
   props: {
     delay: {
       type: [Number, String],
@@ -71,7 +75,7 @@ export default {
       return ButtonType[this.type] || ButtonType.primary
     },
     buttonSize() {
-      return ButtonSize[this.size] || ButtonSize.default
+      return ButtonSize[this.size || this.widgetSize] || ButtonSize.default
     },
     buttonDisplay() {
       return this.block ? 'b-button-block' : ''

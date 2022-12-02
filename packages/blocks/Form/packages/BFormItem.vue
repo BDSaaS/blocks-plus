@@ -40,6 +40,7 @@ export default {
     return {
       rules: this.rules,
       field: this.field,
+      widgetSize: this.config.size ?? '',
     }
   },
   inject: ['rules', 'config'],

@@ -18,6 +18,7 @@ const Size = {
   middle: 'b-input-middle', // 32
   default: 'b-input-default', // 40
   large: 'b-input-large', // 48
+  huge: 'b-input-huge',
 }
 
 export default {
@@ -45,8 +46,9 @@ export default {
   },
   // ['rules', 'field']
   inject: {
-    rules: { default: {} },
-    field: { default: '' }
+    rules: {default: {}},
+    field: {default: ''},
+    widgetSize: {default: ''},
   },
   data() {
     return {
@@ -58,7 +60,7 @@ export default {
       return (this.type === 'password' && this.showPasswordText) ? 'text' : this.type
     },
     inputSize() {
-      return Size[this.size] || Size.default
+      return Size[this.size || this.widgetSize] || Size.default
     },
     showPasswordEye() {
       // console.log('this.type === \'password\' && this.options.showIcon', this.type === 'password', this.options.showIcon)

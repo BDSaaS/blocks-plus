@@ -22,6 +22,7 @@ export default {
       default: false,
     },
     labelPosition: String,
+    size: String,
   },
   provide() {
     return {
@@ -29,6 +30,7 @@ export default {
       config: {
         labelWidth: this.configLabelWidth,
         labelDisplay: this.labelDisplay,
+        size: this.size,
       },
     }
   },

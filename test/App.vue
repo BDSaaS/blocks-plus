@@ -67,19 +67,24 @@
     <hr>
     <b-input type="text" v-model="bSize" placeholder="这里修改Button的大小"></b-input>
     <hr>
-    <b-form ref="login" :formData="loginForm" :rules="loginValidatorRules">
+    <b-form ref="login" size="large" :formData="loginForm" :rules="loginValidatorRules">
       <b-form-item field="mobile" label="请输入手机号">
-        <b-input v-model="loginForm.mobile" type="text" size="large" placeholder="请输入手机号" />
+        <b-input v-model="loginForm.mobile" type="text" placeholder="请输入手机号" />
       </b-form-item>
       <b-form-item field="password" label="请输入密码">
-        <b-input v-model="loginForm.password" type="password" size="middle" placeholder="请输入密码" />
+        <b-input v-model="loginForm.password" type="password" placeholder="请输入密码" />
       </b-form-item>
       <div class="forget-password">
         <i class="cursor-point not-copy" @click="layerStatus='forget_password'">忘记密码?</i>
       </div>
       <b-form-item>
-        <b-button style="height: 60px;line-height: 60px" :delay="1000" size="large" @click="login(loginForm)"
+        <b-button style="height: 60px;line-height: 60px" :delay="1000" @click="login(loginForm)"
                   block>登录
+        </b-button>
+      </b-form-item>
+      <b-form-item>
+        <b-button :delay="1000" @click="login(loginForm)" block>
+          Huge
         </b-button>
       </b-form-item>
     </b-form>
